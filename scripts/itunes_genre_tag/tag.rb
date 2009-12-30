@@ -119,6 +119,7 @@ module AllMusicGuide
             return artists.find { |artist|    
                 years = normalize_years( parse_years(artist.years) )
                 artist.decades = years
+                next if years.nil? or years.empty?
                 if years.include? decade then
                     artist.guess = true
                     break artist
