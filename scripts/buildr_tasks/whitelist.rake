@@ -58,7 +58,7 @@ module BuildrWhitelist
         puts "#{name} = ["
 
         # print all dependencies
-        puts specs.sort.map { |s| "    \"#{s}\"" }.join(",\n")
+        puts specs.sort.uniq.map { |s| "    \"#{s}\"" }.join(",\n")
         
         # close array
         puts "    ]"
