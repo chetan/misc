@@ -26,7 +26,7 @@ module BuildrWhitelist
     before_define do |project|
         # # Define the loc task for this particular project.
         project.task 'whitelist', :spec do |task, args|
-			BuildrWhitelist.exec(args[:spec])
+            BuildrWhitelist.exec(args[:spec])
         end
     end
 
@@ -34,37 +34,37 @@ module BuildrWhitelist
         task('whitelist' => spec)
     end
 
-	def self.exec(spec)
-		if spec.nil? or spec.empty? then
-			puts "ERROR: no spec passed"
-			puts "usage: buildr whitelist[<spec>]"
-			return
-		end
-		
-		artifacts = Buildr.transitive(spec)
-		
-		puts
-		puts "listing all transitive specs for: #{spec}"
-		puts
-		
-		specs = []
-		artifacts.each { |a|
-			specs << "#{a.group}:#{a.id}:#{a.type}:#{a.version}"
-		}
+    def self.exec(spec)
+        if spec.nil? or spec.empty? then
+            puts "ERROR: no spec passed"
+            puts "usage: buildr whitelist[<spec>]"
+            return
+        end
+        
+        artifacts = Buildr.transitive(spec)
+        
+        puts
+        puts "listing all transitive specs for: #{spec}"
+        puts
+        
+        specs = []
+        artifacts.each { |a|
+            specs << "#{a.group}:#{a.id}:#{a.type}:#{a.version}"
+        }
 
-		# create constant
-		orig = Buildr.artifact(spec)
-		name = orig.id.gsub('-', '_').upcase
-		puts "#{name} = ["
+        # create constant
+        orig = Buildr.artifact(spec)
+        name = orig.id.gsub('-', '_').upcase
+        puts "#{name} = ["
 
-		# print all dependencies
-		puts specs.sort.map { |s| "\t\"#{s}\"" }.join(",\n")
-		
-		# close array
-		puts "\t]"
-		
-		puts
-	end
+        # print all dependencies
+        puts specs.sort.map { |s| "\t\"#{s}\"" }.join(",\n")
+        
+        # close array
+        puts "\t]"
+        
+        puts
+    end
 
 end
 
