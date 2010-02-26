@@ -58,10 +58,10 @@ module BuildrWhitelist
         puts "#{name} = ["
 
         # print all dependencies
-        puts specs.sort.map { |s| "\t\"#{s}\"" }.join(",\n")
+        puts specs.sort.map { |s| "    \"#{s}\"" }.join(",\n")
         
         # close array
-        puts "\t]"
+        puts "    ]"
         
         puts
     end
