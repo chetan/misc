@@ -5,7 +5,8 @@
 # USAGE
 #
 # The only requirement is a buildfile with at least one remote Maven repo
-# defined and this task at ./tasks/whitelist.rake relative to buildfile.
+# defined, at least one project definition, and this task file 
+# at ./tasks/whitelist.rake relative to buildfile.
 #
 # Then run:
 # 
