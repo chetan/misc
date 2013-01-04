@@ -1,0 +1,15 @@
+WHAT IS THIS?
+
+a simple library to aid in debugging stored procedures. rather than adding "select 'text'" 
+all over your code, you can add debug.msg('proc', 'text') all over your code! :)
+
+
+TO INSTALL
+
+0) [optional] compile mysql_now_msec.cc (see file for documentation)
+1) import debug.sql or debug_msec.sql
+
+
+TO USE 
+
+read comments in debug.sql or debug_msec.sql
